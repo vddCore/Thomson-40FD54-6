@@ -185,19 +185,19 @@ cd /system/modules
 ./install_bluetooth.sh &
 #sh /system/autotest.sh &
 
+rm /bin/su
+
 cd ../
 cp /usr/bin/* /bin/
 passwd root -d
 
-rm /bin/su
-
-mount --bind /system/bin /usr/bin
-
 mkdir /opt
-mount --bind /system/opt /opt
+mkdir /system/root
 
 mount /system -o remount,rw
 
-export LD_LIBRARY_PATH=/lib:/system/lib:/system/lib/libs
+mount --bind /system/bin /usr/bin
+mount --bind /system/opt /opt
+mount --bind /system/root /root
 
 /opt/openssh/bin/sshd
