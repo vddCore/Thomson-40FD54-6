@@ -192,7 +192,6 @@ cp /usr/bin/* /bin/
 passwd root -d
 
 mkdir /opt
-mkdir /system/root
 
 mount /system -o remount,rw
 
